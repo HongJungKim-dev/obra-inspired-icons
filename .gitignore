@@ -1,0 +1,8 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+
+# Generated files (can be recreated from raw-icons)
+customizable-icons/

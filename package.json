@@ -1,0 +1,37 @@
+{
+  "name": "obra-inspired-icons",
+  "version": "1.0.0",
+  "description": "A collection of icons for Obra Studio",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean --minify --external react,react-dom",
+    "clean": "rm -rf dist",
+    "icons:customize": "node stripSvgAttrs.js",
+    "icons:generate": "npx svgr ./customizable-icons --out-dir ./src/icons --typescript --no-svgo",
+    "icons:build": "npm run icons:customize && npm run icons:generate",
+    "storybook": "storybook dev -p 6006"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^9.0.16",
+    "@storybook/addon-onboarding": "^9.0.16",
+    "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
+    "@storybook/react-webpack5": "^9.0.16",
+    "@svgr/cli": "^8.1.0",
+    "@types/node": "^24.0.13",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "storybook": "^9.0.16",
+    "svgo": "^4.0.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.3.0"
+  }
+}
