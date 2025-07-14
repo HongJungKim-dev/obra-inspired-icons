@@ -1,15 +1,30 @@
 {
   "name": "obra-inspired-icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of icons for Obra Studio",
+  "keywords": ["icons", "react", "obra", "svg"],
+  "author": "eden",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HongJungKim-dev/obra-inspired-icons"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean --minify --external react,react-dom",
+    "build": "tsup",
     "clean": "rm -rf dist",
     "icons:customize": "node stripSvgAttrs.js",
     "icons:generate": "npx svgr ./customizable-icons --out-dir ./src/icons --typescript --no-svgo",
